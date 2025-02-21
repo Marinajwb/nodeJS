@@ -15,7 +15,6 @@ app.use(express.urlencoded({
 
 app.get('/',function(req,res){
    res.render('index');
-
 });
 
 app.get('/restaurants',function(req,res){
@@ -28,6 +27,14 @@ app.get('/restaurants',function(req,res){
         restaurants : storedRestaurants
     });
 });
+
+app.get('/restaurants/:id',function(req,res){
+    const restaurantId = req.params.id;
+    res.render('restaurants-detail',{rid : restaurantId})
+    //params.뒤에 오는값은 내가 콜론뒤에 설정해준 값이름으로 
+});
+//:id값 형식으로 동적 라우팅
+
 app.get('/recommend',function(req,res){
     res.render('recommend');
  });
@@ -56,4 +63,6 @@ app.get('/recommend',function(req,res){
  app.get('/index',function(req,res){
     res.render('index');
  });
+
+
 app.listen(3000);

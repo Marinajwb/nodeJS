@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <%- include('includes/head.ejs')%>
-    <link rel="stylesheet" href="styles/restaurants.css" />
+    <link rel="stylesheet" href="/styles/restaurants.css" />
   </head>
   <body>
     <%- include('includes/header.ejs')%>
@@ -12,13 +12,15 @@
       <% if (numberOfRestaurants ===0 ){%>
         <p>아직 추천 된 식당이 없어요! 식당을 추천해주세요</p>
         <%} else{%>
+          <p>Find your next favorite restaurants with help of our other users!</p>
+          <p> <%= numberOfRestaurants%>개의 식당이 추천되었습니다.</p>
+          <ul id="restaurants-list">
+            <% for (const restaurant of restaurants){%>
+              <%- include('includes/restaurants/restaurant-item.ejs',{restaurant : restaurant })%>
+            <% }%>
           <% }%>
-      <p>Find your next favorite restaurants with help of our other users!</p>
-      <p> <%= numberOfRestaurants%>개의 식당이 추천되었습니다.</p>
-      <ul id="restaurants-list">
-        <% for (const restaurant of restaurants){%>
-          <%- include('includes/restaurants/restaurant-item.ejs',{restaurant : restaurant })%>
-        <% }%>
+      
+   
   
       </ul>
     </main>
