@@ -8,10 +8,10 @@
     <%- include('includes/header.ejs')%>
     <%- include('includes/nav.ejs')%>
     <main>
-    <h1>식당이름 <%= rid%></h1>
-    <p>Cuisine | Address</p>
-    <p>식당 세부정보</p>
-    <p><a href="">식당 홈페이지</a></p>
+    <h1> <%= restaurant.name%></h1>
+    <p><%= restaurant.cuisine%> | <%= restaurant.address%></p>
+    <p><%= restaurant.description%></p>
+    <p><a href="<%= restaurant.website%>">식당 홈페이지</a></p>
     </main>
   </body>
 </html>
